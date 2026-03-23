@@ -1,0 +1,13 @@
+name: Saloni Gupta
+role: Monitoring Analyst
+experience_years: 3
+learning: true
+
+tools:
+  - Docker
+  - Grafana
+  - Prometheus
+  - Git
+  - AWS
+
+hobbies: [learning-devops, reading, music]
