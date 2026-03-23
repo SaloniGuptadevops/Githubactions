@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies
+  pre_build:
+    commands:
+      - echo Login to ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t myapp .
+      - docker tag myapp:latest myrepo:latest
+  post_build:
+    commands:
+      - docker push myrepo:latest
