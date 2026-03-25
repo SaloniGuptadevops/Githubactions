@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Say hello to users
         run: echo "hello dosto"
-        name: Hello workflow
 
 
 
