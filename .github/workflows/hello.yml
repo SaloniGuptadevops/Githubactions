@@ -14,15 +14,11 @@ jobs:
         run: echo "hello dosto"
         name: Hello workflow
 
-on:
-  push:
-    branches: [main]
 
-jobs:
-  greet:
-    runs-on: ubuntu-latest
 
-    steps:
+
+
+   
       - name: Checkout repository
         uses: actions/checkout@v4
 
