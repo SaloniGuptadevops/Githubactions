@@ -13,11 +13,6 @@ jobs:
       - name: Say hello to users
         run: echo "hello dosto"
 
-
-
-
-
-   
       - name: Checkout repository
         uses: actions/checkout@v4
 
