@@ -12,3 +12,31 @@ jobs:
     steps:
       - name: Say hello to users
         run: echo "hello dosto"
+        name: Hello workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello dosto"
+
+      - name: Print date and time
+        run: date
+
+      - name: Print branch name
+        run: echo "Branch name is $GITHUB_REF_NAME"
+
+      - name: List files in repo
+        run: ls -la
+
+      - name: Print runner OS
+        run: echo "Runner OS is $RUNNER_OS"
