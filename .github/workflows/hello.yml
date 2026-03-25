@@ -3,7 +3,7 @@ name: Hello workflow
 on:
   push: 
    branches: [main]
-jobs: 
+jobs: null
 greet:
   runs-on: ubuntu-latest
 steps:
