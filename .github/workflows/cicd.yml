@@ -3,12 +3,12 @@ name: CICD
 on: 
   workflow_dispatch:
   
-  jobs:
+jobs:
    code:
      runs-on: ubuntu-latest
      steps:
       - name: checkout code
-        step: echo "code clone from github"
+        run: echo "code clone from github"
 
    build:
       runs-on: ubuntu-latest
