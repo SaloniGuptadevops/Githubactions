@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   ubuntu-job:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
+
     steps:
-      - name: Print details (Ubuntu)
+      - name: Print system details (Ubuntu)
         run: |
           echo "OS: Ubuntu"
           echo "Hostname: $(hostname)"
@@ -18,18 +20,22 @@ jobs:
       - name: Check pre-installed tools
         run: |
           echo "Docker version:"
-          docker --version
+          docker --version || echo "Docker not installed"
+
           echo "Python version:"
-          python3 --version
+          python3 --version || echo "Python not installed"
+
           echo "Node version:"
-          node --version
+          node --version || echo "Node not installed"
+
           echo "Git version:"
-          git --version
+          git --version || echo "Git not installed"
 
   windows-job:
     runs-on: windows-latest
+
     steps:
-      - name: Print details (Windows)
+      - name: Print system details (Windows)
         run: |
           echo "OS: Windows"
           hostname
@@ -37,8 +43,9 @@ jobs:
 
   macos-job:
     runs-on: macos-latest
+
     steps:
-      - name: Print details (macOS)
+      - name: Print system details (macOS)
         run: |
           echo "OS: macOS"
           hostname
