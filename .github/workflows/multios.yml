@@ -11,42 +11,37 @@ jobs:
     runs-on: [self-hosted, Linux]
 
     steps:
-      - name: Print system details (Ubuntu)
+      - name: Print system details
         run: |
           echo "OS: Ubuntu"
           echo "Hostname: $(hostname)"
           echo "User: $(whoami)"
 
-      - name: Check pre-installed tools
+      - name: Install Python
+        run: |
+          sudo apt update
+          sudo apt install -y python3 python3-pip
+
+      - name: Check tools
         run: |
           echo "Docker version:"
           docker --version || echo "Docker not installed"
 
           echo "Python version:"
-          python3 --version || echo "Python not installed"
+          python3 --version
 
           echo "Node version:"
           node --version || echo "Node not installed"
 
           echo "Git version:"
-          git --version || echo "Git not installed"
+          git --version
 
   windows-job:
     runs-on: windows-latest
-
     steps:
-      - name: Print system details (Windows)
-        run: |
-          echo "OS: Windows"
-          hostname
-          whoami
+      - run: echo "Windows OK"
 
   macos-job:
     runs-on: macos-latest
-
     steps:
-      - name: Print system details (macOS)
-        run: |
-          echo "OS: macOS"
-          hostname
-          whoami
+      - run: echo "macOS OK"
