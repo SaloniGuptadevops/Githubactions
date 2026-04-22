@@ -20,7 +20,7 @@ jobs:
           echo "Docker version:"
           docker --version
           echo "Python version:"
-          python --version
+          python3 --version
           echo "Node version:"
           node --version
           echo "Git version:"
