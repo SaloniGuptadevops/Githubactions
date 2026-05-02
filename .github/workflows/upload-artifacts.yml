@@ -4,18 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload-artifact-job:
+  upload-file:
     runs-on: ubuntu-latest
 
     steps:
       - name: Create report file
         run: |
           echo "Test Report" > report.txt
-          echo "Build Status: Success" >> report.txt
+          echo "Build Success" >> report.txt
           echo "Date: $(date)" >> report.txt
-
-      - name: Show file content
-        run: cat report.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
